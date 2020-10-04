@@ -1,0 +1,58 @@
+/* .background {
+    background-color: #282c34;
+    min-height: 100vh;
+} */
+
+/* .loginbox {
+    text-align: center;
+    padding: 70px 0;
+} */
+
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(56, 122, 56);
+    padding: 10px;
+    text-align: center;
+  }
+
+  
+.background {
+    background-color: #00acee;
+    min-height: 100vh;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tweetCard {
+  min-height: 10vh;
+  display:flex;
+  border-width: 1px;
+  border-color: 'red';
+  background-color: 'red';
+  padding:10px
+}
+.backgroundFeed {
+
+  /* background-color: #00acee; */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-width: 1;
+  border-color: 'red';
+}
+
+.button {
+    background-color: #9494b8;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}

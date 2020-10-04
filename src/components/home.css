@@ -1,0 +1,22 @@
+.navbar {
+    background-color: indianred;
+}
+
+.body {
+    /* padding-top: 20px; */
+    padding: 20px 20px 0px 20px;
+}
+
+.sideborder {
+    border-right: 1px solid gray;
+}
+
+.background {
+
+    background-color: #3d3d5c;
+    min-height: 100vh;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
