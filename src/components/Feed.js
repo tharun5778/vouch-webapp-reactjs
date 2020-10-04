@@ -12,19 +12,18 @@ class Feed extends Component{
             <div className="body">       
                         {/* getting feed as a props from home to display tweets  */}
                         {
-                            this.props.feed.map((i)=>(
-                                
+                            this.props.feed.map((tweet)=>(
+                                <div>
+                                <p>{"@"+tweet.user.screen_name}</p>
                                 <div className='tweetCard'>
                                 <Grid container spacing={3}>
-                                    <Grid item xs={2}>
-                                        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                                    </Grid>
-                                    <Grid item xs={8}>
+                                    <Grid item>
                                         <Typography variant="body2" component="h3">
-                                            {i.text}
+                                            {tweet.text}
                                         </Typography>
                                     </Grid>
                                 </Grid>
+                                </div>
                             </div>
                             ))
                         }

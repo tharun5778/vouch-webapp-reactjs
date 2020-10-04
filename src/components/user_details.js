@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {  CardBody, CardSubtitle,CardText, CardTitle, Row, Col, Card, CardImg} from 'reactstrap';
+import {  CardBody, CardSubtitle,CardText, CardTitle,Card, CardImg} from 'reactstrap';
 
 
 class User extends Component{
@@ -9,11 +9,8 @@ class User extends Component{
             {/* getting user and mostshared as a props from home to display user details and most tweets shared user  */}
             <div className="body">       
                         <Card>
-                            <CardImg top width="10%" src="" alt="Card image cap" />
                             <CardBody>
-                                <CardTitle>{this.props.user.screen_name}</CardTitle>
-                                <CardSubtitle>{this.props.user.user_id}</CardSubtitle>
-                                <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                                {(this.props.user.screen_name!= null && this.props.user.screen_name != undefined)&&(<CardTitle>{'@'}{this.props.user.screen_name}</CardTitle>)}
                             </CardBody>
                         </Card>
                         <Card>

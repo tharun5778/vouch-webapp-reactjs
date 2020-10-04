@@ -32,7 +32,7 @@ class Header extends Component{
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
                                     <Link to="/main">
-                                        <Button outline >
+                                        <Button >
                                             <span className="fa fa-sign-in fa-lg"></span>Logout
                                         </Button>
                                     </Link>    

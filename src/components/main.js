@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Button } from 'reactstrap';
+import { Button,Spinner } from 'reactstrap';
 import './main.css';
 
 class Login extends Component {
@@ -9,6 +9,7 @@ class Login extends Component {
         this.state = {
             auth: {},
             redirect_link: '',
+            isLoading:true
         };
         this.getTwitterToken.bind(this);
     }
@@ -20,8 +21,9 @@ class Login extends Component {
             .then(response => response.json())
             .then(result => {
                 if (!result.error) {
-                    this.setState({ auth: result, redirect_link: "https://api.twitter.com/oauth/authenticate?oauth_token=" + result["oauth_token"] + "&force_login=true" })
+                    this.setState({ isLoading:false,auth: result, redirect_link: "https://api.twitter.com/oauth/authenticate?oauth_token=" + result["oauth_token"] + "&force_login=true" })
                 } else {
+                    this.setState({isLoading:false})
                     alert("internal server error")
                 }
             })
@@ -29,20 +31,26 @@ class Login extends Component {
     }
 
     render() {
-        console.log(this.state.auth);
-        return ( < div className = "background" >
-            <
-            div >
-            <
-            Button style = {
-                { height: 50, width: 200, paddingTop: 10 }
-            }
-            href = { this.state.redirect_link } > Login with Twitter < /Button>                 < /
-            div >
-
-            <
-            /div>)
-        }
+        return ( 
+        <div className = "background" >
+            {(!this.state.isLoading)&&( <div >
+             <Button style = {{ height: 50, width: 200, paddingTop: 10 }}href = { this.state.redirect_link } > Login with Twitter </Button> 
+             </div>)}
+            {(this.state.isLoading)&&(
+                 <div >
+                <Spinner type="grow" color="primary" />
+      <Spinner type="grow" color="secondary" />
+      <Spinner type="grow" color="success" />
+      <Spinner type="grow" color="danger" />
+      <Spinner type="grow" color="warning" />
+      <Spinner type="grow" color="info" />
+      <Spinner type="grow" color="light" />
+      <Spinner type="grow" color="dark" />
+             </div>
+             )}
+             </div>
+        )
     }
+}
 
-    export default Login;
+export default Login;

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import {Row, Col} from 'reactstrap';
+import {Row, Col,Spinner} from 'reactstrap';
 import './home.css';
 import User from './user_details';
 import Feed from './Feed';
@@ -16,7 +16,8 @@ class Home extends Component{
             details:{},
             feed:[],
             mostshared:{},
-            top_domains: []
+            top_domains: [],
+            isLoading:true
         };
         
     }
@@ -26,8 +27,11 @@ class Home extends Component{
       .then(res => res.json())
       .then(
         (result) => {
-            console.log("RESULT",JSON.stringify(result));
-            // filtering 7 days past tweets from all tweets
+            if(result.error){
+                this.setState({isLoading:false})
+                alert('internal server error')
+            }else{
+                            // filtering 7 days past tweets from all tweets
             var data = result.data;
             var date = new Date(moment().subtract(7, 'days').toDate());                                       
             var past_date = date.getTime();
@@ -77,7 +81,8 @@ class Home extends Component{
                 }
             count=0;
             }
-            this.setState({mostshared,feed,top_domains});
+            this.setState({mostshared,feed,top_domains,details:this.props.location.state.detail,isLoading:false});
+            }
         },
         (error) => {
             console.log("error",error)
@@ -85,13 +90,16 @@ class Home extends Component{
       )
     }
     render(){
-        return(<div>
+        console.log("this.state.details",this.state.details)
+        return( 
+        <div>
 
-            <Header/>  {/* nav bar */}
-            <div className="body">
+        <Header/> {/* nav bar */}
+            <div  className="background">
+            {(!this.state.isLoading)&&(<div className="background">
                 <Row>
                     <Col xs="6" sm="4" className="sideborder">        
-                        <User user={this.state.details} mostshared={this.state.mostshared}/>   {/* to display user details and most shared user */}
+                        <User user={this.state.details} mostshared={this.state.mostshared}/>   {/*to display user details and most shared user*/}
                     </Col>
 
                     <Col xs="6" sm="4" className="sideborder">
@@ -105,8 +113,20 @@ class Home extends Component{
                     </Col>
                 </Row>
             </div>
-
-            
+)}
+{(this.state.isLoading)&&(
+                 <div >
+                <Spinner type="grow" color="primary" />
+      <Spinner type="grow" color="secondary" />
+      <Spinner type="grow" color="success" />
+      <Spinner type="grow" color="danger" />
+      <Spinner type="grow" color="warning" />
+      <Spinner type="grow" color="info" />
+      <Spinner type="grow" color="light" />
+      <Spinner type="grow" color="dark" />
+             </div>
+             )}
+         </div>   
         </div>);
     }
 }
