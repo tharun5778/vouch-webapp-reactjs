@@ -16,7 +16,7 @@ class User extends Component{
                         <Card>
                             <CardBody>
                                 <h3>User shared the Most links</h3>
-                                <CardSubtitle>{this.props.mostshared.name}</CardSubtitle>
+                                <CardSubtitle>{"@"+this.props.mostshared.screen_name}</CardSubtitle>
                             </CardBody>
                         </Card>
             </div>

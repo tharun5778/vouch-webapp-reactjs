@@ -90,7 +90,6 @@ class Home extends Component{
       )
     }
     render(){
-        console.log("this.state.details",this.state.details)
         return( 
         <div>
 
