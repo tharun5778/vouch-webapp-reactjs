@@ -4,8 +4,6 @@
 
 This Project is a Simple ReactJS Project which demonstrates the login flow and home-timeline using Twitter api
 
-The project Template can be used to build bigger projects
-
 ## Live Application URL
 
 ### https://vouch-assignment.herokuapp.com/
