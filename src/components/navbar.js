@@ -25,9 +25,6 @@ class Header extends Component{
                                 <NavItem>
                                     <NavLink href="#">Home</NavLink>
                                 </NavItem>
-                                    <NavItem>
-                                    <NavLink href="#">About</NavLink>
-                                </NavItem>
                             </Nav>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
